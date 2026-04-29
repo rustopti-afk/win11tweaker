@@ -30,7 +30,7 @@ public class ThemeService
 
     public bool IsSecureUxThemeInstalled()
     {
-        using var key = Registry.LocalMachine.OpenSubKey(SutMarkerKey);
+        using var key = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(SutMarkerKey);
         return key?.GetValue(SutMarkerVal) != null;
     }
 

@@ -37,17 +37,17 @@ public class WallpaperService
         SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, "", SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
 
         // Set background color in registry
-        using var key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Colors", writable: true)!;
+        using var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Control Panel\Colors", writable: true)!;
         key.SetValue("Background", $"{color.R} {color.G} {color.B}", RegistryValueKind.String);
 
         // Also update via HKCU Desktop
-        using var desk = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", writable: true)!;
+        using var desk = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", writable: true)!;
         desk.SetValue("Wallpaper", "", RegistryValueKind.String);
     }
 
     private static void SetWallpaperStyle(WallpaperStyle style)
     {
-        using var key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", writable: true)!;
+        using var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", writable: true)!;
 
         var (wallpaperStyle, tileWallpaper) = style switch
         {

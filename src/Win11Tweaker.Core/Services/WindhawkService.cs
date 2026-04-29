@@ -94,7 +94,7 @@ public class WindhawkService : IDisposable
 
         if (_exePath != null) return true;
 
-        using var key = Registry.LocalMachine.OpenSubKey(
+        using var key = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(
             @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Windhawk");
         var loc = key?.GetValue("InstallLocation") as string;
         if (loc == null) return false;

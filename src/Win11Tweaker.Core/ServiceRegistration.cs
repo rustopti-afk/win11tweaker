@@ -15,7 +15,6 @@ public static class ServiceRegistration
     /// </summary>
     public static IServiceCollection AddWin11TweakerCore(this IServiceCollection services)
     {
-        services.AddLogging();
         services.AddSingleton<RegistryService>();
         services.AddSingleton<ChangeTracker>();
         services.AddSingleton<TaskbarTweakService>();

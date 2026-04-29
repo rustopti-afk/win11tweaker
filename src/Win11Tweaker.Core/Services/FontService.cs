@@ -46,7 +46,7 @@ public class FontService
 
         // Register in HKCU Fonts
         var fontName = GetFontName(destPath);
-        using var key = Registry.CurrentUser.CreateSubKey(
+        using var key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(
             @"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts");
         key.SetValue(fontName, destPath, RegistryValueKind.String);
 
@@ -62,7 +62,7 @@ public class FontService
     /// </summary>
     public void ReplaceSegoeUi(string fontName)
     {
-        using var key = Registry.CurrentUser.CreateSubKey(
+        using var key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(
             @"SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontSubstitutes");
         key.SetValue("Segoe UI", fontName, RegistryValueKind.String);
     }
@@ -70,7 +70,7 @@ public class FontService
     /// <summary>Restore original Segoe UI font.</summary>
     public void RestoreSegoeUi()
     {
-        using var key = Registry.CurrentUser.OpenSubKey(
+        using var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(
             @"SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontSubstitutes", writable: true);
         key?.DeleteValue("Segoe UI", throwOnMissingValue: false);
     }
@@ -79,7 +79,7 @@ public class FontService
     public List<string> GetInstalledUserFonts()
     {
         var fonts = new List<string>();
-        using var key = Registry.CurrentUser.OpenSubKey(
+        using var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(
             @"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts");
         if (key == null) return fonts;
 

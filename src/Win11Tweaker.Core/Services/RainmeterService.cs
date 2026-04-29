@@ -36,7 +36,7 @@ public class RainmeterService
         if (_exePath != null) return true;
 
         // Also check registry
-        using var key = Registry.LocalMachine.OpenSubKey(
+        using var key = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(
             @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Rainmeter");
         var installPath = key?.GetValue("InstallLocation") as string;
         if (installPath != null)
