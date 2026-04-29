@@ -1,0 +1,20 @@
+<Application x:Class="Win11Tweaker.UI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ui="http://schemas.modernwpf.com/2019"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ui:ThemeResources />
+                <ui:XamlControlsResources />
+                <ResourceDictionary Source="Styles/NavButton.xaml" />
+                <ResourceDictionary Source="Styles/Cards.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- App accent color -->
+            <Color x:Key="AppAccent">#0078D4</Color>
+            <SolidColorBrush x:Key="AppAccentBrush" Color="{StaticResource AppAccent}" />
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
