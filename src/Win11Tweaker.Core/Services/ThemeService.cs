@@ -153,13 +153,13 @@ public class ThemeService
         return themeFilePath;
     }
 
-    private static string GenerateThemeFile(string name, string msstylesPath) => $"""
+    private static string GenerateThemeFile(string name, string msstylesPath) => $$"""
         [Theme]
-        DisplayName={name}
+        DisplayName={{name}}
         ThemeId={{{Guid.NewGuid()}}}
 
         [VisualStyles]
-        Path={msstylesPath}
+        Path={{msstylesPath}}
         ColorStyle=NormalColor
         Size=NormalSize
         ColorizationColor=0X6B74B8FC
