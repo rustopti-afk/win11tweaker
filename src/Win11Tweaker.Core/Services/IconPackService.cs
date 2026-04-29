@@ -129,7 +129,7 @@ public class IconPackService
     private static void ApplyClsidIcon(string clsid, string iconPath)
     {
         // HKCU\Software\Classes\CLSID\{...}\DefaultIcon
-        using var key = Registry.CurrentUser.CreateSubKey(
+        using var key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(
             $@"Software\Classes\CLSID\{clsid}\DefaultIcon");
         key.SetValue("", iconPath, RegistryValueKind.String);
     }
@@ -140,7 +140,7 @@ public class IconPackService
         // HKCU\Software\Classes\CLSID\{645FF040...}\DefaultIcon
         //   default = full icon
         //   "empty" = empty icon
-        using var key = Registry.CurrentUser.CreateSubKey(
+        using var key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(
             $@"Software\Classes\CLSID\{clsid}\DefaultIcon");
 
         if (states.TryGetValue("full", out var full))
@@ -153,7 +153,7 @@ public class IconPackService
     {
         // HKCU\Software\Classes\.<ext>\DefaultIcon
         var extKey = ext.StartsWith('.') ? ext : $".{ext}";
-        using var key = Registry.CurrentUser.CreateSubKey(
+        using var key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(
             $@"Software\Classes\{extKey}\DefaultIcon");
         key.SetValue("", iconPath, RegistryValueKind.String);
     }
@@ -161,7 +161,7 @@ public class IconPackService
     private static void ApplyDefaultFolderIcon(string iconPath)
     {
         // Changes the default icon for all folders without a custom Desktop.ini
-        using var key = Registry.CurrentUser.CreateSubKey(
+        using var key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(
             @"Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell");
         key.SetValue("Icon", iconPath, RegistryValueKind.String);
     }

@@ -7,7 +7,7 @@ using Microsoft.Win32;
 
 namespace Win11Tweaker.Core.Services;
 
-public class WindhawkMod
+public record WindhawkMod
 {
     public string Id          { get; set; } = "";
     public string Name        { get; set; } = "";
