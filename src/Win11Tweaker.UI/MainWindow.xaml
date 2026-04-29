@@ -35,12 +35,18 @@
 
                 <!-- Nav items -->
                 <StackPanel DockPanel.Dock="Top" Margin="8,0">
-                    <Button x:Name="BtnTaskbar"   Style="{StaticResource NavButtonStyle}"
-                            Content="⬛  Taskbar"    Click="NavButton_Click" Tag="Taskbar" />
-                    <Button x:Name="BtnExplorer"  Style="{StaticResource NavButtonStyle}"
-                            Content="📁  Explorer"   Click="NavButton_Click" Tag="Explorer" />
-                    <Button x:Name="BtnAppearance" Style="{StaticResource NavButtonStyle}"
-                            Content="🎨  Appearance" Click="NavButton_Click" Tag="Appearance" />
+                    <Button x:Name="BtnTaskbar"    Style="{StaticResource NavButtonStyle}"
+                            Content="⬛  Taskbar"     Click="NavButton_Click" Tag="Taskbar" />
+                    <Button x:Name="BtnExplorer"   Style="{StaticResource NavButtonStyle}"
+                            Content="📁  Explorer"    Click="NavButton_Click" Tag="Explorer" />
+                    <Button x:Name="BtnAppearance"  Style="{StaticResource NavButtonStyle}"
+                            Content="🎨  Appearance"  Click="NavButton_Click" Tag="Appearance" />
+                    <Button x:Name="BtnIcons"       Style="{StaticResource NavButtonStyle}"
+                            Content="🖼️  Icons"       Click="NavButton_Click" Tag="Icons" />
+                    <Button x:Name="BtnFonts"       Style="{StaticResource NavButtonStyle}"
+                            Content="🔤  Fonts"       Click="NavButton_Click" Tag="Fonts" />
+                    <Button x:Name="BtnWallpaper"   Style="{StaticResource NavButtonStyle}"
+                            Content="🖥️  Wallpaper"   Click="NavButton_Click" Tag="Wallpaper" />
                 </StackPanel>
 
                 <!-- Separator -->

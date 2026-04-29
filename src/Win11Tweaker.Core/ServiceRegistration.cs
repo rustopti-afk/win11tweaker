@@ -20,6 +20,10 @@ public static class ServiceRegistration
         services.AddSingleton<TaskbarTweakService>();
         services.AddSingleton<ExplorerTweakService>();
         services.AddSingleton<ElevatedHelperClient>();
+        services.AddSingleton<TaskbarBlurService>();
+        services.AddSingleton<IconPackService>();
+        services.AddSingleton<WallpaperService>();
+        services.AddSingleton<FontService>();
         return services;
     }
 }

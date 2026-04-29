@@ -37,6 +37,9 @@ public partial class MainWindow : Window
             "Taskbar"    => new TaskbarPage(),
             "Explorer"   => new ExplorerPage(),
             "Appearance" => new AppearancePage(),
+            "Icons"      => new IconsPage(),
+            "Fonts"      => new FontsPage(),
+            "Wallpaper"  => new WallpaperPage(),
             "Settings"   => new SettingsPage(),
             "About"      => new AboutPage(),
             _            => new TaskbarPage()
