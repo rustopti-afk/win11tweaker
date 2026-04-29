@@ -44,12 +44,12 @@
 
             <Border Style="{StaticResource CardStyle}">
                 <StackPanel Margin="0,8">
-                    <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,0,0,12">
+                    <ui:SimpleStackPanel Orientation="Horizontal" Spacing="8" Margin="0,0,0,12">
                         <Button Content="📁 Install Custom Theme (.msstyles)"
                                 Click="InstallTheme_Click"
                                 Style="{DynamicResource AccentButtonStyle}"/>
                         <Button Content="🔄 Refresh" Click="RefreshThemes_Click"/>
-                    </StackPanel>
+                    </ui:SimpleStackPanel>
 
                     <ItemsControl x:Name="ThemesList">
                         <ItemsControl.ItemTemplate>

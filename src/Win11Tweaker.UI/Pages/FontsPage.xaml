@@ -52,14 +52,14 @@
                         Affects menus, title bars, and most system UI. Requires restart.
                     </TextBlock>
 
-                    <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,0,0,10">
+                    <ui:SimpleStackPanel Orientation="Horizontal" Spacing="8" Margin="0,0,0,10">
                         <ComboBox x:Name="SystemFontPicker" Width="220"
                                   SelectionChanged="SystemFontPicker_Changed"/>
                         <Button Content="Apply Font" Click="ApplySystemFont_Click"
                                 Style="{DynamicResource AccentButtonStyle}"
                                 x:Name="ApplyFontBtn" IsEnabled="False"/>
                         <Button Content="Restore Default" Click="RestoreDefaultFont_Click"/>
-                    </StackPanel>
+                    </ui:SimpleStackPanel>
 
                     <!-- Preview -->
                     <Border Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}"

@@ -121,13 +121,13 @@
                                VerticalAlignment="Center"
                                Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" />
 
-                    <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8">
+                    <ui:SimpleStackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8">
                         <TextBlock x:Name="ChangesCount"
                                    Text="0 changes"
                                    FontSize="12"
                                    VerticalAlignment="Center"
                                    Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}" />
-                    </StackPanel>
+                    </ui:SimpleStackPanel>
                 </Grid>
             </Border>
         </Grid>

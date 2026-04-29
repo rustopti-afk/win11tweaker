@@ -104,13 +104,13 @@
                     <TextBlock FontSize="13" TextWrapping="Wrap" Margin="0,0,0,10">
                         Apply a custom icon to a specific folder via Desktop.ini
                     </TextBlock>
-                    <StackPanel Orientation="Horizontal" Spacing="8">
+                    <ui:SimpleStackPanel Orientation="Horizontal" Spacing="8">
                         <Button Content="📂 Choose Folder..." Click="ChooseFolder_Click"/>
                         <Button Content="🖼️ Choose Icon..."   Click="ChooseIcon_Click"/>
                         <Button Content="Apply" Click="ApplyFolderIcon_Click"
                                 Style="{DynamicResource AccentButtonStyle}"
                                 x:Name="ApplyFolderBtn" IsEnabled="False"/>
-                    </StackPanel>
+                    </ui:SimpleStackPanel>
                     <TextBlock x:Name="FolderStatusText" FontSize="12" Margin="0,8,0,0"
                                Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"/>
                 </StackPanel>

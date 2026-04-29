@@ -14,13 +14,13 @@
                        Margin="0,0,0,24"/>
 
             <!-- Actions -->
-            <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,0,0,20">
+            <ui:SimpleStackPanel Orientation="Horizontal" Spacing="8" Margin="0,0,0,20">
                 <Button Content="📸 Save Current State"
                         Click="SaveCurrentState_Click"
                         Style="{DynamicResource AccentButtonStyle}"/>
                 <Button Content="📥 Import .w11theme"
                         Click="ImportProfile_Click"/>
-            </StackPanel>
+            </ui:SimpleStackPanel>
 
             <!-- Profile cards -->
             <TextBlock Text="SAVED PROFILES" FontSize="11" FontWeight="SemiBold"
@@ -63,7 +63,7 @@
                                 </StackPanel>
 
                                 <!-- Actions -->
-                                <StackPanel Grid.Column="2" VerticalAlignment="Center"
+                                <ui:SimpleStackPanel Grid.Column="2" VerticalAlignment="Center"
                                             Margin="8" Spacing="6">
                                     <Button Content="Apply"
                                             Tag="{Binding Id}"
@@ -78,7 +78,7 @@
                                             Tag="{Binding Id}"
                                             Click="DeleteProfile_Click"
                                             HorizontalAlignment="Stretch"/>
-                                </StackPanel>
+                                </ui:SimpleStackPanel>
                             </Grid>
                         </Border>
                     </DataTemplate>
