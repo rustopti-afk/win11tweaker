@@ -1,0 +1,95 @@
+name: Build & Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  # ── Tests (Linux, fast, no Windows needed) ──────────────────────────────────
+  test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore tests/Win11Tweaker.Core.Tests/
+
+      - name: Test
+        run: dotnet test tests/Win11Tweaker.Core.Tests/ --framework net8.0 --no-restore
+             --logger "trx;LogFileName=results.trx"
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results
+          path: "**/*.trx"
+
+  # ── Windows build (produces the actual .exe) ─────────────────────────────────
+  build-windows:
+    name: Build Windows EXE
+    runs-on: windows-latest
+    needs: test
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore Win11Tweaker.sln
+
+      - name: Build Core
+        run: dotnet build src/Win11Tweaker.Core/ -c Release --framework net8.0-windows
+
+      - name: Build Helper
+        run: dotnet publish src/Win11Tweaker.Helper/ -c Release -r win-x64
+             --self-contained false -o publish/helper
+
+      - name: Build UI
+        run: dotnet publish src/Win11Tweaker.UI/ -c Release -r win-x64
+             --self-contained false -o publish/ui
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: win11tweaker-windows-x64
+          path: |
+            publish/ui/
+            publish/helper/
+          retention-days: 30
+
+  # ── Release (only on version tags) ──────────────────────────────────────────
+  release:
+    name: Create Release
+    runs-on: windows-latest
+    needs: build-windows
+    if: startsWith(github.ref, 'refs/tags/v')
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: win11tweaker-windows-x64
+          path: publish/
+
+      - name: Zip artifacts
+        run: Compress-Archive -Path publish/* -DestinationPath Win11Tweaker_${{ github.ref_name }}_x64.zip
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: Win11Tweaker_${{ github.ref_name }}_x64.zip
+          generate_release_notes: true

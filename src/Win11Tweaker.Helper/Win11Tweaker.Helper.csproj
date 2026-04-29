@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Platforms>x64</Platforms>
+    <RootNamespace>Win11Tweaker.Helper</RootNamespace>
+    <!-- Runs as Administrator — manifest is set in GitHub Actions build -->
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Win11Tweaker.Core\Win11Tweaker.Core.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,22 @@
+## .NET / Visual Studio
+bin/
+obj/
+*.user
+*.suo
+.vs/
+publish/
+TestResults/
+*.trx
+
+## NuGet
+packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+
+## OS
+.DS_Store
+Thumbs.db
+
+## App data (never commit user settings)
+*.w11theme
