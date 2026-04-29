@@ -40,6 +40,9 @@ public partial class MainWindow : Window
             "Icons"      => new IconsPage(),
             "Fonts"      => new FontsPage(),
             "Wallpaper"  => new WallpaperPage(),
+            "Themes"     => new ThemesPage(),
+            "Tools"      => new ToolsPage(),
+            "Profiles"   => new ProfilesPage(),
             "Settings"   => new SettingsPage(),
             "About"      => new AboutPage(),
             _            => new TaskbarPage()

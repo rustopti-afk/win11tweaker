@@ -47,6 +47,12 @@
                             Content="🔤  Fonts"       Click="NavButton_Click" Tag="Fonts" />
                     <Button x:Name="BtnWallpaper"   Style="{StaticResource NavButtonStyle}"
                             Content="🖥️  Wallpaper"   Click="NavButton_Click" Tag="Wallpaper" />
+                    <Button x:Name="BtnThemes"      Style="{StaticResource NavButtonStyle}"
+                            Content="🎭  Themes"      Click="NavButton_Click" Tag="Themes" />
+                    <Button x:Name="BtnTools"       Style="{StaticResource NavButtonStyle}"
+                            Content="🔧  Tools"       Click="NavButton_Click" Tag="Tools" />
+                    <Button x:Name="BtnProfiles"    Style="{StaticResource NavButtonStyle}"
+                            Content="💾  Profiles"    Click="NavButton_Click" Tag="Profiles" />
                 </StackPanel>
 
                 <!-- Separator -->

@@ -1,6 +1,7 @@
 #if WINDOWS
 using Microsoft.Extensions.DependencyInjection;
 using Win11Tweaker.Core.Backup;
+using Win11Tweaker.Core.Profile;
 using Win11Tweaker.Core.Registry;
 using Win11Tweaker.Core.Services;
 
@@ -24,6 +25,10 @@ public static class ServiceRegistration
         services.AddSingleton<IconPackService>();
         services.AddSingleton<WallpaperService>();
         services.AddSingleton<FontService>();
+        services.AddSingleton<ThemeService>();
+        services.AddSingleton<RainmeterService>();
+        services.AddSingleton<WindhawkService>();
+        services.AddSingleton<ProfileManager>();
         return services;
     }
 }
